@@ -1,9 +1,10 @@
 import React from "react";
 
-const Reivew = () => {
+const Reivew = async ({ params }: { params: { productId: string } }) => {
+  const param = await params;
   return (
     <>
-      <h1>This is Review</h1>
+      <h1>This is Review with Product Id : {param.productId}</h1>
     </>
   );
 };
