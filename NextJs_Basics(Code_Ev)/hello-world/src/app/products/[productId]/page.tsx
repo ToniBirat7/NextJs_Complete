@@ -5,7 +5,15 @@ type Props = {
   params: { productId: string };
 };
 
-export const generateMetadata = async({});
+export const generateMetadata = async ({
+  params,
+}: Props): Promise<Metadata> => {
+  const id = (await params).productId;
+  return {
+    title: `Product ${id}`,
+    description: `Very good product`,
+  };
+};
 
 const ProductById = async ({ params }: { params: { productId: string } }) => {
   // await the whole params object, then destructure
