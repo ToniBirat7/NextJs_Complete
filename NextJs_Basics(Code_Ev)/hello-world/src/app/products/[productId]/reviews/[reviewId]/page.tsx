@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation";
 import React from "react";
 
 const ReivewId = async ({
@@ -10,6 +11,9 @@ const ReivewId = async ({
 }) => {
   const param = await params;
   console.log("Review ", param);
+  if (parseInt(param.reviewId) > 10) {
+    notFound();
+  }
   return (
     <>
       <h1>Review Id : {param.productId}</h1>
