@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 
 const page = () => {
+  const [uname, setUname] = useState("");
   return (
     <>
       <h1>
@@ -18,6 +19,15 @@ const page = () => {
       <h1>
         <Link href="products/4">Product 4</Link>
       </h1>
+      <div>
+        <input
+          type="text"
+          value={uname}
+          onChange={(e) => {
+            setUname(e.target.value);
+          }}
+        ></input>
+      </div>
     </>
   );
 };
