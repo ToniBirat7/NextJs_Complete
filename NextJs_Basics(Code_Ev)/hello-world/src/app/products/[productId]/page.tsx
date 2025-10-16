@@ -32,6 +32,7 @@ const ProductById = async ({ params, searchParams }: Props) => {
       </h1>
       <h1>Sort: {searchParam.sort}</h1>
       <h1>Filter: {searchParam.filter}</h1>
+      <button>Check Out</button>
     </>
   );
 };
