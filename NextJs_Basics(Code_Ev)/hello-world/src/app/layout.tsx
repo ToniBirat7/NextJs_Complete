@@ -22,20 +22,15 @@ export default function RootLayout({
         <nav>
           <Link
             href="/products"
-            className={
-              isProductsActive
-                ? "text-5xl text-red-500"
-                : "text-yellow-500 mr-4"
-            }
+            className={isProductsActive ? "text-yellow-400 " : ""}
           >
             Products
           </Link>
           <br />
-          <Link href="/products/reviews" className="text-amber-300">
+          <Link href="/products/reviews" className="text-red-500">
             Product Reviews
           </Link>
         </nav>
-        <p className={"text-5xl text-red-500"}>Hiiii</p>
         {children}
       </body>
     </html>
