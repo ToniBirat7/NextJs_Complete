@@ -28,6 +28,10 @@ const ProductById = async ({ params, searchParams }: Props) => {
 
   return (
     <>
+      <br></br>
+      <br></br>
+      <br></br>
+
       <h1>Product Id: {productId}</h1>
       <h1>
         <Link href={`${productId}/reviews/${productId}`}>Review 1</Link>
