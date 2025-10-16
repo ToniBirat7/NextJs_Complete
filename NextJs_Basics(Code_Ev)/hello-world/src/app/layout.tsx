@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import "./globals.css"; // important!
 
 export default function RootLayout({
   children,
@@ -34,6 +35,7 @@ export default function RootLayout({
             Product Reviews
           </Link>
         </nav>
+        <p className={"text-5xl text-red-500"}>Hiiii</p>
         {children}
       </body>
     </html>
