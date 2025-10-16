@@ -1,6 +1,7 @@
 import React from "react";
 import { Metadata } from "next";
 import Link from "next/link";
+import OrderComp from "@/_components/OrderComp";
 
 type Props = {
   params: { productId: string };
@@ -33,6 +34,7 @@ const ProductById = async ({ params, searchParams }: Props) => {
       </h1>
       <h1>Sort: {searchParam.sort}</h1>
       <h1>Filter: {searchParam.filter}</h1>
+      <OrderComp></OrderComp>
     </>
   );
 };
