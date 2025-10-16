@@ -18,7 +18,7 @@ export const generateMetadata = async ({
 };
 
 const ProductById = async ({ params, searchParams }: Props) => {
-  const { productId } = params;
+  const { productId } = await params;
   const searchParam = await searchParams;
 
   console.log("Search Params : ", searchParam);
