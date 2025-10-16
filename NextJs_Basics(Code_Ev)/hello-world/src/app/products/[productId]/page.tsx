@@ -4,7 +4,7 @@ import Link from "next/link";
 
 type Props = {
   params: { productId: string };
-  searchParams: { sort: string; filter: string };
+  searchParams: Promise<{ sort?: "asc" | "dsc"; filter?: "top" | "btm" }>;
 };
 
 export const generateMetadata = async ({
@@ -19,7 +19,10 @@ export const generateMetadata = async ({
 
 const ProductById = async ({ params, searchParams }: Props) => {
   const { productId } = params;
-  console.log("Search Params : ", searchParams);
+  const searchParam = await searchParams;
+
+  console.log("Search Params : ", searchParam);
+
   console.log("Id", productId);
   return (
     <>
@@ -27,8 +30,8 @@ const ProductById = async ({ params, searchParams }: Props) => {
       <h1>
         <Link href={`${productId}/reviews/${productId}`}>Review 1</Link>
       </h1>
-      <h1>Sort: {searchParams.sort}</h1>
-      <h1>Filter: {searchParams.filter}</h1>
+      <h1>Sort: {searchParam.sort}</h1>
+      <h1>Filter: {searchParam.filter}</h1>
     </>
   );
 };
