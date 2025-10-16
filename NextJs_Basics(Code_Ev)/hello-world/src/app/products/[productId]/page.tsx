@@ -1,5 +1,6 @@
 import React from "react";
 import { Metadata } from "next";
+import Link from "next/link";
 
 type Props = {
   params: { productId: string };
@@ -22,6 +23,9 @@ const ProductById = async ({ params }: { params: { productId: string } }) => {
   return (
     <>
       <h1>Product Id: {productId}</h1>
+      <h1>
+        <Link href={`${productId}/reviews/${productId}`}>Review 1</Link>
+      </h1>
     </>
   );
 };
