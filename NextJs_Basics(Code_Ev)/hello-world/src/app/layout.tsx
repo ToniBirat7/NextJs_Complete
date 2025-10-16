@@ -9,8 +9,10 @@ export default function RootLayout({
 }) {
   const pathname = usePathname();
   console.log(pathname);
-  const isActive = pathname === "/products";
-  console.log("Active : ", isActive);
+  const isProductsActive =
+    pathname === "/products" || pathname.startsWith("/products/");
+
+  console.log("Active : ", isProductsActive);
 
   return (
     <html lang="en">
@@ -19,12 +21,18 @@ export default function RootLayout({
         <nav>
           <Link
             href="/products"
-            className={isActive ? "text-5xl" : "text-blue-500 mr-4"}
+            className={
+              isProductsActive
+                ? "text-5xl text-red-500"
+                : "text-yellow-500 mr-4"
+            }
           >
             Products
           </Link>
           <br />
-          <Link href="/products/reviews">Product Reviews</Link>
+          <Link href="/products/reviews" className="text-amber-300">
+            Product Reviews
+          </Link>
         </nav>
         {children}
       </body>
