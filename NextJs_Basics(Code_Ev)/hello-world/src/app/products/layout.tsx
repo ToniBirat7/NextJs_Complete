@@ -9,11 +9,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>
-        <h1>Products</h1>
-        {children}
-      </body>
-    </html>
+    <>
+      <h1>Products</h1>
+      {children}
+    </>
   );
 }
