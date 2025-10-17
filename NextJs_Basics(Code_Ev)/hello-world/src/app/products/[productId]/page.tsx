@@ -1,44 +1,59 @@
+// src/app/products/[productId]/page.tsx
 import React from "react";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
 import OrderComp from "@/_components/OrderComp";
 
-type Props = {
-  params: { productId: string };
-  searchParams: Promise<{ sort?: "asc" | "dsc"; filter?: "top" | "btm" }>;
-};
-
-export const generateMetadata = async ({
+/**
+ * generateMetadata receives `params` synchronously (plain object).
+ * Annotate inline to ensure the type matches Next's expectations.
+ */
+export async function generateMetadata({
   params,
-}: Props): Promise<Metadata> => {
-  const id = (await params).productId;
+}: {
+  params: { productId: string };
+}): Promise<Metadata> {
+  const id = params.productId; // don't await params
   return {
     title: `Product ${id}`,
     description: `Very good product`,
   };
-};
+}
 
-const ProductById = async ({ params, searchParams }: Props) => {
-  const { productId } = await params;
-  const searchParam = await searchParams;
+/**
+ * The page component also receives plain objects for params/searchParams.
+ * Make searchParams optional because it may be undefined.
+ */
+const ProductById = async ({
+  params,
+  searchParams,
+}: {
+  params: { productId: string };
+  searchParams?: { sort?: "asc" | "dsc"; filter?: "top" | "btm" };
+}) => {
+  // no await on params/searchParams
+  const { productId } = params;
+  const sort = searchParams?.sort;
+  const filter = searchParams?.filter;
 
-  console.log("Search Params : ", searchParam);
-
+  console.log("Search Params:", { sort, filter });
   console.log("Id", productId);
 
   return (
     <>
-      <br></br>
-      <br></br>
-      <br></br>
+      <br />
+      <br />
+      <br />
 
       <h1>Product Id: {productId}</h1>
       <h1>
-        <Link href={`${productId}/reviews/${productId}`}>Review 1</Link>
+        <Link href={`/products/${productId}/reviews/${productId}`}>
+          Review 1
+        </Link>
       </h1>
-      <h1>Sort: {searchParam.sort}</h1>
-      <h1>Filter: {searchParam.filter}</h1>
-      <OrderComp></OrderComp>
+      <h1>Sort: {sort}</h1>
+      <h1>Filter: {filter}</h1>
+      <OrderComp />
     </>
   );
 };
