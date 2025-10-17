@@ -1,14 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 
-const Docs = () => {
-  useEffect(() => {
-    for (let i = 0; i < 999999999; i++) {
-      console.log("i", i);
-    }
-    return () => {
-      console.log("UnMounted");
-    };
-  }, []);
+const Docs = async () => {
+  await new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("Delay");
+    }, 2000);
+  });
   return <div>Did Loading Appear?</div>;
 };
 
