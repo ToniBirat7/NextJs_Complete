@@ -10,7 +10,7 @@ const Docs = async () => {
       resolve("Compelted");
     }, 3000);
   });
-  const rand = getRandInt(2);
+  const rand = getRandInt(5);
   if (rand === 1) {
     throw new Error("1 is Error");
   }
