@@ -5,11 +5,11 @@ function getRandInt(num: number) {
 }
 
 const Docs = async () => {
-  await new Promise((resolve) => {
-    setTimeout(() => {
-      resolve("Compelted");
-    }, 3000);
-  });
+  // await new Promise((resolve) => {
+  //   setTimeout(() => {
+  //     resolve("Compelted");
+  //   }, 3000);
+  // });
   const rand = getRandInt(2);
   console.log("Rnad", rand);
   if (rand === 1) {
