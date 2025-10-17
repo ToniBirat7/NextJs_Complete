@@ -1,9 +1,7 @@
 import React from "react";
-
 function getRandInt(num: number) {
   return Math.floor(Math.random() * num);
 }
-
 const Docs = async () => {
   // await new Promise((resolve) => {
   //   setTimeout(() => {
