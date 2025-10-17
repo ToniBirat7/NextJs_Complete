@@ -9,7 +9,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const pathName = usePathname();
-  const [uname, setUname] = useState("");
+  const [uname, setUname] = useState("");            
   return (
     <>
       <h1>
