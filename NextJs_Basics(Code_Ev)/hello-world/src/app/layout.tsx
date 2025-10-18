@@ -1,6 +1,5 @@
 // src/app/layout.tsx (RootLayout)
 import "./globals.css";
-import ClientRand from "@/_components/ClientRand";
 export default function RootLayout({
   children,
 }: {
@@ -9,11 +8,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head />
-      <body>
-        
-        <ClientRand />
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
