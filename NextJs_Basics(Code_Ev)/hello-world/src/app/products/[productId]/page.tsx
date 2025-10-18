@@ -7,9 +7,10 @@ import OrderComp from "@/_components/OrderComp";
 export async function generateMetadata({
   params,
 }: {
-  params: { productId: string };
+  params: Promise<{ productId: string }>;
 }): Promise<Metadata> {
-  const id = params.productId;
+  const { productId } = await params;
+  const id = productId;
   return {
     title: `Product ${id}`,
     description: `Very good product`,
@@ -20,13 +21,14 @@ export default async function ProductById({
   params,
   searchParams,
 }: {
-  params: { productId: string };
-  searchParams?: { sort?: "asc" | "dsc"; filter?: "top" | "btm" };
+  params: Promise<{ productId: string }>;
+  searchParams?: Promise<{ sort?: "asc" | "dsc"; filter?: "top" | "btm" }>;
 }) {
-  // no await on params/searchParams — they are plain objects
-  const { productId } = params;
-  const sort = searchParams?.sort ?? "none";
-  const filter = searchParams?.filter ?? "none";
+  // await on params/searchParams — they are now Promises in Next.js 15
+  const { productId } = await params;
+  const resolvedSearchParams = await searchParams;
+  const sort = resolvedSearchParams?.sort ?? "none";
+  const filter = resolvedSearchParams?.filter ?? "none";
 
   console.log("Search Params:", { sort, filter });
   console.log("Id", productId);

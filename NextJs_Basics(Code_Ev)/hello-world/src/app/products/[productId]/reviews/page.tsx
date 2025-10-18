@@ -1,6 +1,10 @@
 import React from "react";
 
-const Reivew = async ({ params }: { params: { productId: string } }) => {
+const Reivew = async ({
+  params,
+}: {
+  params: Promise<{ productId: string }>;
+}) => {
   const param = await params;
   return (
     <>

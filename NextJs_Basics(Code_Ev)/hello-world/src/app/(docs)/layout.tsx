@@ -11,11 +11,11 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const rand = getRandInt(2);
-  console.log("Rnad in Layout", rand);
-  if (rand === 1) {
-    throw new Error("1 is from Layout");
-  }
+  // const rand = getRandInt(2);
+  // console.log("Rnad in Layout", rand);
+  // if (rand === 1) {
+  //   throw new Error("1 is from Layout");
+  // }
   return (
     <html lang="en">
       <body>

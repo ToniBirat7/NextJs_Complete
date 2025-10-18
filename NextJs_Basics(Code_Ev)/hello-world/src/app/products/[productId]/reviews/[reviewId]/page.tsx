@@ -4,10 +4,10 @@ import React from "react";
 const ReivewId = async ({
   params,
 }: {
-  params: {
+  params: Promise<{
     productId: string;
     reviewId: string;
-  };
+  }>;
 }) => {
   const param = await params;
   console.log("Review ", param);
